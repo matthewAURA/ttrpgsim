@@ -61,9 +61,9 @@ public class DefaultObservableServiceTest {
         final DndCharacter dndCharacter = new DndCharacter();
         dndCharacter.setUniqueId(new UniqueId("character"));
 
-        final Observer obsA = mock(Observer.class);
-        final Observer obsB = mock(Observer.class);
-        final Observer obsC = mock(Observer.class);
+        final Observer obsA = new Observer();
+        final Observer obsB = new Observer();
+        final Observer obsC = new Observer();
         final ConditionEvaluator eval = mock(ConditionEvaluator.class);
         final ConditionEvaluator evalFalse = mock(ConditionEvaluator.class);
         final ObserverTriggerStrategy trig

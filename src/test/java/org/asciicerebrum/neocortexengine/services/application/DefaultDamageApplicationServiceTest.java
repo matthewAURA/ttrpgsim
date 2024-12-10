@@ -14,8 +14,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -81,12 +81,12 @@ public class DefaultDamageApplicationServiceTest {
         damages.addDamage(damageB);
 
         when(this.observableService.triggerObservers(eq(damageA),
-                eq(dndCharacter), (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(), eq(dndCharacter)))
+                eq(dndCharacter), (ObserverSources) any(),
+                (ObserverHooks) any(), eq(dndCharacter)))
                 .thenReturn(damageA);
         when(this.observableService.triggerObservers(eq(damageB),
-                eq(dndCharacter), (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(), eq(dndCharacter)))
+                eq(dndCharacter), (ObserverSources) any(),
+                (ObserverHooks) any(), eq(dndCharacter)))
                 .thenReturn(damageB);
 
         this.service.applyDamage(dndCharacter, damages);

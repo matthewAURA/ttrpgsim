@@ -25,8 +25,8 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -75,7 +75,7 @@ public class DefaultBonusCalculationServiceImplTest {
         final ContextBoni ctxBoni = new ContextBoni();
         final ContextBonus ctxBonus = new ContextBonus(bonus, uniqueEnity);
         ctxBoni.add(ctxBonus);
-        when(bonusSource.getBoni((UniqueEntity) anyObject(),
+        when(bonusSource.getBoni((UniqueEntity) any(),
                 eq(this.entityPoolService))).thenReturn(ctxBoni);
 
         final ContextBoni testBoni = this.bonusCalcService.accumulateBoni(

@@ -18,8 +18,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -74,8 +74,8 @@ public class DefaultConditionApplicationServiceTest {
 
         when(this.observableService.triggerObservers(
                 eq(condA), eq(dndCharacter),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(), eq(dndCharacter)))
+                (ObserverSources) any(),
+                (ObserverHooks) any(), eq(dndCharacter)))
                 .thenReturn(condA);
 
         this.service.applyCondition(dndCharacter, conditions);
@@ -97,8 +97,8 @@ public class DefaultConditionApplicationServiceTest {
 
         when(this.observableService.triggerObservers(
                 eq(condA), eq(dndCharacter),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(), eq(dndCharacter)))
+                (ObserverSources) any(),
+                (ObserverHooks) any(), eq(dndCharacter)))
                 .thenReturn(condA);
 
         this.service.applyCondition(dndCharacter, conditions);

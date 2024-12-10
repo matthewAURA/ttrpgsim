@@ -28,8 +28,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.withSettings;
@@ -89,7 +89,7 @@ public class DndCharacterFactoryTest {
 
         when(this.applicationContext.getBean(DndCharacter.class))
                 .thenReturn(this.resultCharacter);
-        when(this.baseAbilityEntryFactory.newEntity((EntitySetup) anyObject()))
+        when(this.baseAbilityEntryFactory.newEntity((EntitySetup) any()))
                 .thenReturn(new BaseAbilityEntry());
     }
 

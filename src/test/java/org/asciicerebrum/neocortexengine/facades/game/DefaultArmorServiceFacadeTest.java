@@ -14,8 +14,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -75,14 +75,14 @@ public class DefaultArmorServiceFacadeTest {
         when(this.observableService.triggerObservers(
                 eq(penaltyA),
                 eq(armorA),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(),
+                (ObserverSources) any(),
+                (ObserverHooks) any(),
                 eq(dndCharacter))).thenReturn(penaltyA);
         when(this.observableService.triggerObservers(
                 eq(penaltyB),
                 eq(armorB),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(),
+                (ObserverSources) any(),
+                (ObserverHooks) any(),
                 eq(dndCharacter))).thenReturn(penaltyB);
 
         final BonusValue result = this.facade.getMinimumArmorCheckPenalty(
@@ -114,14 +114,14 @@ public class DefaultArmorServiceFacadeTest {
         when(this.observableService.triggerObservers(
                 eq(maxdexA),
                 eq(armorA),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(),
+                (ObserverSources) any(),
+                (ObserverHooks) any(),
                 eq(dndCharacter))).thenReturn(maxdexA);
         when(this.observableService.triggerObservers(
                 eq(maxdexB),
                 eq(armorB),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(),
+                (ObserverSources) any(),
+                (ObserverHooks) any(),
                 eq(dndCharacter))).thenReturn(maxdexB);
 
         final BonusValue result = this.facade.getMinimumMaxDexBonus(

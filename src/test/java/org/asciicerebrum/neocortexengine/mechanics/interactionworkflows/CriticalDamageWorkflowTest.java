@@ -16,8 +16,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -75,7 +75,7 @@ public class CriticalDamageWorkflowTest {
         final DndCharacter triggerCharacter = new DndCharacter();
         interaction.setTriggeringCharacter(triggerCharacter);
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn(new Armor());
 
         this.workflow.runWorkflow(interaction, campaign);
@@ -91,9 +91,9 @@ public class CriticalDamageWorkflowTest {
         final CriticalFactor critFactor = new CriticalFactor(3L);
         interaction.setTriggeringCharacter(triggerCharacter);
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn(new Weapon());
-        when(this.weaponServiceFacade.getCriticalFactor((Weapon) anyObject(),
+        when(this.weaponServiceFacade.getCriticalFactor((Weapon) any(),
                 eq(triggerCharacter))).thenReturn(critFactor);
 
         this.workflow.runWorkflow(interaction, campaign);

@@ -19,8 +19,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -78,7 +78,7 @@ public class DefaultCombatRoundManagerTest {
         this.manager.initiateCombatRound(campaign, dndCharacters);
 
         verify(this.conditionExpirationWorkflow, times(1)).runWorkflow(
-                (Interaction) anyObject(), eq(campaign));
+                (Interaction) any(), eq(campaign));
     }
 
     @Test
@@ -91,7 +91,7 @@ public class DefaultCombatRoundManagerTest {
         this.manager.initiateCombatRound(campaign, dndCharacters);
 
         verify(this.conditionExpirationWorkflow, times(0)).runWorkflow(
-                (Interaction) anyObject(), eq(campaign));
+                (Interaction) any(), eq(campaign));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class DefaultCombatRoundManagerTest {
         this.manager.initiateCombatRound(campaign, dndCharacters);
 
         verify(this.initializeCombatRoundWorkflow, times(1)).runWorkflow(
-                (Interaction) anyObject(), eq(campaign));
+                (Interaction) any(), eq(campaign));
     }
 
     @Test
@@ -116,7 +116,7 @@ public class DefaultCombatRoundManagerTest {
         this.manager.initiateCombatRound(campaign, dndCharacters);
 
         verify(this.initializeCombatRoundWorkflow, times(0)).runWorkflow(
-                (Interaction) anyObject(), eq(campaign));
+                (Interaction) any(), eq(campaign));
     }
 
     @Test

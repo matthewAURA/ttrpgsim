@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -75,7 +75,7 @@ public class ItemInUseEvaluatorTest {
         final ICharacter dndCharacter = new DndCharacter();
         final UniqueEntity contextItem = new Weapon();
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn((InventoryItem) contextItem);
 
         final boolean result = this.evaluator.evaluate(
@@ -92,7 +92,7 @@ public class ItemInUseEvaluatorTest {
         final Armor inventoryItem = new Armor();
         inventoryItem.setUniqueId(new UniqueId("inventoryItem"));
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn((InventoryItem) inventoryItem);
 
         final boolean result = this.evaluator.evaluate(
@@ -105,7 +105,7 @@ public class ItemInUseEvaluatorTest {
         final ICharacter dndCharacter = new DndCharacter();
         final UniqueEntity contextItem = new Weapon();
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn((InventoryItem) contextItem);
 
         final boolean result = this.evaluator.evaluate(
@@ -118,7 +118,7 @@ public class ItemInUseEvaluatorTest {
         final ICharacter dndCharacter = new DndCharacter();
         final UniqueEntity contextItem = new Weapon();
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn((InventoryItem) null);
 
         final boolean result = this.evaluator.evaluate(

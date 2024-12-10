@@ -29,8 +29,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -109,13 +109,13 @@ public class InitializeCombatRoundWorkflowTest {
         final RollResult result = new RollResult(new DiceRoll(0L),
                 new BonusValue());
         when(this.rollResultManager.retrieveRollResult(
-                (BonusValue) anyObject(),
+                (BonusValue) any(),
                 eq(this.initiativeAction),
-                (UniqueEntity) anyObject(),
-                (DndCharacter) anyObject(),
-                (UniqueIds) anyObject(),
-                (WorldDate) anyObject(),
-                (Campaign) anyObject()))
+                (UniqueEntity) any(),
+                (DndCharacter) any(),
+                (UniqueIds) any(),
+                (WorldDate) any(),
+                (Campaign) any()))
                 .thenReturn(result);
 
         this.wf.rollInitiative(characters.iterator(), combatRound, campaign);
@@ -195,13 +195,13 @@ public class InitializeCombatRoundWorkflowTest {
                 new BonusValue());
         // resolving ties with different dice rolls
         when(this.rollResultManager.retrieveRollResult(
-                (BonusValue) anyObject(),
+                (BonusValue) any(),
                 eq(this.initiativeAction),
-                (UniqueEntity) anyObject(),
-                (DndCharacter) anyObject(),
-                (UniqueIds) anyObject(),
-                (WorldDate) anyObject(),
-                (Campaign) anyObject()))
+                (UniqueEntity) any(),
+                (DndCharacter) any(),
+                (UniqueIds) any(),
+                (WorldDate) any(),
+                (Campaign) any()))
                 .thenReturn(result1, result2);
 
         final DndCharacters dndCharacters
@@ -222,13 +222,13 @@ public class InitializeCombatRoundWorkflowTest {
                 new BonusValue());
         // keeping ties with equal dice rolls
         when(this.rollResultManager.retrieveRollResult(
-                (BonusValue) anyObject(),
+                (BonusValue) any(),
                 eq(this.initiativeAction),
-                (UniqueEntity) anyObject(),
-                (DndCharacter) anyObject(),
-                (UniqueIds) anyObject(),
-                (WorldDate) anyObject(),
-                (Campaign) anyObject()))
+                (UniqueEntity) any(),
+                (DndCharacter) any(),
+                (UniqueIds) any(),
+                (WorldDate) any(),
+                (Campaign) any()))
                 .thenReturn(result, result);
 
         final DndCharacters dndCharacters
@@ -259,7 +259,7 @@ public class InitializeCombatRoundWorkflowTest {
 
         // only the second character becomes flat footed!
         verify(this.conditionService, times(1)).applyCondition(
-                eq(characterB), (Conditions) anyObject()
+                eq(characterB), (Conditions) any()
         );
     }
 
@@ -284,7 +284,7 @@ public class InitializeCombatRoundWorkflowTest {
 
         // only the second character becomes flat footed!
         verify(this.conditionService, times(0)).applyCondition(
-                eq(characterA), (Conditions) anyObject()
+                eq(characterA), (Conditions) any()
         );
     }
 }

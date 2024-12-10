@@ -38,7 +38,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,7 +129,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(20L),
                         new DiceRoll(8L));
 
@@ -152,7 +152,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(17L),
                         new DiceRoll(14L));
 
@@ -188,7 +188,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
                 .getEntityById(new UniqueId("valeros")));
 
         // giving additional rolls to resolve the tie between harsk and merisiel
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(12L), new DiceRoll(12L),
                         new DiceRoll(1L), new DiceRoll(1L), new DiceRoll(2L));
 
@@ -211,7 +211,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(20L),
                         new DiceRoll(8L));
 
@@ -237,7 +237,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(20L),
                         new DiceRoll(8L));
 
@@ -262,7 +262,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(20L),
                         new DiceRoll(8L));
 
@@ -290,7 +290,7 @@ public class InitializeCombatRoundWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(20L),
                         new DiceRoll(8L));
 

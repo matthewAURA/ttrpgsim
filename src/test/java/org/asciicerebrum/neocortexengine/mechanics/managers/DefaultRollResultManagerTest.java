@@ -27,7 +27,7 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -75,7 +75,7 @@ public class DefaultRollResultManagerTest {
         this.manager.setRollHistoryListeners(this.listeners);
         
         final DiceRoll diceRoll = new DiceRoll(10L);
-        when(this.diceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.diceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(diceRoll);
     }
     
@@ -150,7 +150,7 @@ public class DefaultRollResultManagerTest {
                 worldDate, campaign);
         
         verify(this.listenerB, times(1))
-                .broadcast((RollHistoryEntry) anyObject());
+                .broadcast((RollHistoryEntry) any());
     }
     
     @Test
@@ -176,7 +176,7 @@ public class DefaultRollResultManagerTest {
                 worldDate, campaign);
         
         verify(this.listenerB, times(0))
-                .broadcast((RollHistoryEntry) anyObject());
+                .broadcast((RollHistoryEntry) any());
     }
     
     @Test

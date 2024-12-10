@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -66,15 +66,15 @@ public class DefaultDamageCalculationServiceTest {
                 = new WeaponCategory();
 
         when(this.bonusService.calculateBonusValues(
-                (BonusSources) anyObject(),
-                (BonusTargets) anyObject(),
-                (Weapon) anyObject(),
-                (ObserverSources) anyObject(),
-                (ObserverHooks) anyObject(),
-                (DndCharacter) anyObject())).thenReturn(damageBonus);
+                (BonusSources) any(),
+                (BonusTargets) any(),
+                (Weapon) any(),
+                (ObserverSources) any(),
+                (ObserverHooks) any(),
+                (DndCharacter) any())).thenReturn(damageBonus);
         when(this.situationContextService.getItemAttackMode(
-                (UniqueId) anyObject(),
-                (DndCharacter) anyObject())).thenReturn(itemAttackMode);
+                (UniqueId) any(),
+                (DndCharacter) any())).thenReturn(itemAttackMode);
     }
 
     @After
@@ -106,8 +106,8 @@ public class DefaultDamageCalculationServiceTest {
         final DndCharacter dndCharacter = new DndCharacter();
 
         when(this.situationContextService.getItemAttackMode(
-                (UniqueId) anyObject(),
-                (DndCharacter) anyObject())).thenReturn(null);
+                (UniqueId) any(),
+                (DndCharacter) any())).thenReturn(null);
 
         final BonusValue result
                 = this.service.calcDamageBonus(weapon, dndCharacter);

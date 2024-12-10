@@ -36,7 +36,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import org.slf4j.Logger;
@@ -130,7 +130,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
         participants.addDndCharacter((DndCharacter) this.entityPoolService
                 .getEntityById(new UniqueId("valeros")));
 
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(5L), new DiceRoll(20L),
                         new DiceRoll(8L));
 
@@ -176,7 +176,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
 
         // put new roll results into the mocked dice roll manager for attack
         // and damage!
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(16L), new DiceRoll(4L));
 
         this.executeMeleeSingleAttack(campaign);
@@ -197,7 +197,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
 
         // put new roll results into the mocked dice roll manager for attack
         // and damage!
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(10L));
 
         this.executeMeleeSingleAttack(campaign);
@@ -218,7 +218,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
 
         // put new roll results into the mocked dice roll manager for attack
         // and damage!
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(19L), new DiceRoll(16L),
                         new DiceRoll(4L), new DiceRoll(3L));
 
@@ -240,7 +240,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
 
         // put new roll results into the mocked dice roll manager for attack
         // and damage!
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(19L), new DiceRoll(2L),
                         new DiceRoll(3L));
 
@@ -262,7 +262,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
 
         // put new roll results into the mocked dice roll manager for attack
         // and damage!
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(16L), new DiceRoll(4L));
 
         this.executeMeleeSingleAttack(campaign);
@@ -282,7 +282,7 @@ public class AttackAndDamageWorkflowIntegrationTest {
 
         // put new roll results into the mocked dice roll manager for attack
         // and damage!
-        when(this.mockDiceRollManager.rollDice((DiceAction) anyObject()))
+        when(this.mockDiceRollManager.rollDice((DiceAction) any()))
                 .thenReturn(new DiceRoll(16L), new DiceRoll(4L));
 
         this.executeMeleeSingleAttack(campaign);

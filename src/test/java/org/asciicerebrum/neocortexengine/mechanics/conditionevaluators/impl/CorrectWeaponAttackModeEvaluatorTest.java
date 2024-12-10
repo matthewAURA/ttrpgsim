@@ -17,8 +17,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -103,7 +103,7 @@ public class CorrectWeaponAttackModeEvaluatorTest {
         final UniqueEntity contextItem = null;
         
         when(this.situationContextService.getItemAttackMode(
-                (UniqueId) anyObject(), (DndCharacter) eq(dndCharacter)))
+                (UniqueId) any(), (DndCharacter) eq(dndCharacter)))
                 .thenReturn(null);
         
         final boolean result = this.evaluator.evaluate(

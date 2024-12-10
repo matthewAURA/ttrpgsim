@@ -28,8 +28,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -141,13 +141,13 @@ public class SingleAttackWorkflowTest {
         final RollResult result = new RollResult(new DiceRoll(4L),
                 new BonusValue());
         when(this.rollResultManager.retrieveRollResult(
-                (BonusValue) anyObject(),
+                (BonusValue) any(),
                 eq(this.attackAction),
-                (UniqueEntity) anyObject(),
-                (DndCharacter) anyObject(),
-                (UniqueIds) anyObject(),
-                (WorldDate) anyObject(),
-                (Campaign) anyObject()))
+                (UniqueEntity) any(),
+                (DndCharacter) any(),
+                (UniqueIds) any(),
+                (WorldDate) any(),
+                (Campaign) any()))
                 .thenReturn(result);
 
         final boolean isCritical = this.singleAttackWf.determineCritical(
@@ -173,13 +173,13 @@ public class SingleAttackWorkflowTest {
         final RollResult result = new RollResult(new DiceRoll(16L),
                 new BonusValue());
         when(this.rollResultManager.retrieveRollResult(
-                (BonusValue) anyObject(),
+                (BonusValue) any(),
                 eq(this.attackAction),
-                (UniqueEntity) anyObject(),
-                (DndCharacter) anyObject(),
-                (UniqueIds) anyObject(),
-                (WorldDate) anyObject(),
-                (Campaign) anyObject()))
+                (UniqueEntity) any(),
+                (DndCharacter) any(),
+                (UniqueIds) any(),
+                (WorldDate) any(),
+                (Campaign) any()))
                 .thenReturn(result);
 
         final boolean isCritical = this.singleAttackWf.determineCritical(

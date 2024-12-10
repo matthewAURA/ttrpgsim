@@ -14,7 +14,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -73,13 +73,13 @@ public class ConditionExpirationWorkflowTest {
                 new CombatRoundPosition("1"));
         campaign.setCombatRound(combatRound);
         
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn(new DndCharacter());
 
         this.workflow.runWorkflow(interaction, campaign);
         verify(this.conditionApplicationService, times(2))
-                .removeExpiredConditions((DndCharacter) anyObject(),
-                        (WorldDate) anyObject());
+                .removeExpiredConditions((DndCharacter) any(),
+                        (WorldDate) any());
     }
 
 }

@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -86,7 +86,7 @@ public class ArmorCheckPenaltyProviderTest {
         contextItem.setInventoryItemPrototype(protoArm);
 
         when(this.armorServiceFacade.getMinimumArmorCheckPenalty(
-                (Armors) anyObject(), (DndCharacter) anyObject()))
+                (Armors) any(), (DndCharacter) any()))
                 .thenReturn(new BonusValue(5L));
 
         final Armors armors = new Armors();

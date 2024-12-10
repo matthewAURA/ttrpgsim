@@ -28,7 +28,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -90,13 +90,13 @@ public class DamageWorkflowTest {
                 new BonusValue());
 
         when(this.rollResultManager.retrieveRollResult(
-                (BonusValue) anyObject(),
-                (DiceAction) anyObject(),
-                (UniqueEntity) anyObject(),
-                (DndCharacter) anyObject(),
-                (UniqueIds) anyObject(),
-                (WorldDate) anyObject(),
-                (Campaign) anyObject()))
+                (BonusValue) any(),
+                (DiceAction) any(),
+                (UniqueEntity) any(),
+                (DndCharacter) any(),
+                (UniqueIds) any(),
+                (WorldDate) any(),
+                (Campaign) any()))
                 .thenReturn(result);
     }
 
@@ -109,12 +109,12 @@ public class DamageWorkflowTest {
         final Interaction interaction = new Interaction();
         final Campaign campaign = new Campaign();
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn(new Armor());
 
         this.damageWorkflow.runWorkflow(interaction, campaign);
         verify(this.damageAppService, times(0)).applyDamage(
-                (DndCharacter) anyObject(), (Damages) anyObject());
+                (DndCharacter) any(), (Damages) any());
     }
 
     @Test
@@ -130,12 +130,12 @@ public class DamageWorkflowTest {
         combatRound.addParticipant(new UniqueId("participant"),
                 new CombatRoundPosition(""));
 
-        when(this.entityPoolService.getEntityById((UniqueId) anyObject()))
+        when(this.entityPoolService.getEntityById((UniqueId) any()))
                 .thenReturn(new Weapon());
         
         this.damageWorkflow.setEventTriggerService(null);
         this.damageWorkflow.runWorkflow(interaction, campaign);
         verify(this.damageAppService, times(1)).applyDamage(
-                (DndCharacter) anyObject(), (Damages) anyObject());
+                (DndCharacter) any(), (Damages) any());
     }
 }

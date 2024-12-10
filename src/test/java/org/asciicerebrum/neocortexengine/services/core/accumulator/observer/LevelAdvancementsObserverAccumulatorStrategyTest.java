@@ -16,8 +16,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -81,7 +81,7 @@ public class LevelAdvancementsObserverAccumulatorStrategyTest {
         subObservers.add(subObserver);
         
         when(this.lvlAdvStrategy.getObservers(
-                (ObserverSource) anyObject(),
+                (ObserverSource) any(),
                 eq(targetEntity))).thenReturn(subObservers);
         
         final Observers result = this.strategy.getObservers(
