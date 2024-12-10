@@ -13,6 +13,15 @@ import org.asciicerebrum.neocortexengine.domain.core.particles.UniqueIds;
  */
 public class DndCharacters {
 
+    public static DndCharacters create(DndCharacter... characters) {
+        var newCharacters = new DndCharacters();
+        for (var c: characters) {
+            newCharacters.addDndCharacter(c);
+        }
+
+        return newCharacters;
+    }
+
     /**
      * Central collection of dnd characters.
      */
